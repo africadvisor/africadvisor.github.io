@@ -40,19 +40,8 @@
   }
   document.querySelectorAll(".jry[data-v]").forEach(function(b){
     b.addEventListener("click",function(){
-      var s=document.getElementById("fService"); if(s) s.value=b.getAttribute("data-v");
       var c=document.getElementById("contact"); if(c) c.scrollIntoView({behavior:"smooth"});
     });
-  });
-  var form=document.getElementById("leadForm");
-  if(form) form.addEventListener("submit",function(e){
-    e.preventDefault();
-    if(!form.checkValidity()){form.reportValidity();return;}
-    /* Brancher ici votre endpoint (Formspree / Cloudflare Worker) :
-       fetch("https://votre-endpoint",{method:"POST",body:new FormData(form)}) */
-    var ok=document.getElementById("formOk");
-    if(ok){ok.classList.add("show");ok.scrollIntoView({behavior:"smooth",block:"center"});}
-    form.querySelector("button[type=submit]").disabled=true;
   });
   if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion:reduce)").matches){
     var io=new IntersectionObserver(function(es){es.forEach(function(x){
